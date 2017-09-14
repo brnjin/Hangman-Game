@@ -1,28 +1,74 @@
 /*Variables*/
-var win = 0
-var loss = 0
-var numberOfGuessesLeft = 8
-var lettersGuessed = ""
+var wins = document.getElementById("numberOfWins");
+var loss = document.getElementById("numberOfLosses");
+var guesses = document.getElementById("numberOfguesses");
+var lettersGuessed = "";
+var answerWord = "";
 
 
-/*Array of words*/
-var memeNames = ["pepe", "coldsteel", "doge", "grumpy cat", "success kid", "peanut butter kid"]
-/*Key input from user-on going*/
-document.onkeyup = function(event) {
-	var userGuess = event.key;
-	/*Remember what key is pressed*/
+/*Array of words*/	
+var memeNames = ["pepe", "coldsteel", "doge", "grumpy cat", "success kid", "peanut butter kid"];
 
-		document.getElementById("Letters-guessed").innerHTML = "Letters Guessed: " + (lettersGuessed = lettersGuessed + userGuess);
+	
+/*Resets the game and keeps score*/
+window.onload = function startUp () {
+	var answerWord = randoms;
+	var wins = 0;
+	var loss = 0;
+	var guesses = 13;
+/*Grabs random meme name*/
+var randoms = memeNames[Math.floor(Math.random() * memeNames.length)];
+	for (var i = 0; i < randoms.length; i++) {
+		randoms[i] += "-";
+	};
+document.getElementById("theWord").innerHTML = "Current Word: " + randoms;
 
-	/*Win or Loss count change*/
-	/*Subtract from number of guesses*/
-	/*Change the blank letter if needed*/
 };
 
 
-/*If else statements for each letters*/
+/*Key input from user-on going*/
+document.onkeyup = function(event) {
+	var userGuess = event.key;
 
-/*If the numberOfGuessesLeft goes to 0 {
-	reset numberOfGuessesLeft to 8
-	clear lettersGuessed
-	call new word */
+	/*Remember what key is pressed*/
+		if (userGuess !== lettersGuessed){
+			document.getElementById("Letters-guessed").innerHTML = "Letters Guessed: " + (lettersGuessed = lettersGuessed + userGuess);
+		};
+
+	}; 	
+
+
+// win counter
+/*if (currentWord === "pepe") {
+	wins = wins + 1
+	document.write (wins)
+else (guesses -> 0) {
+};
+if (currentWord === "coldsteel") {
+	wins = win + 1
+else (guesses -> 0) {
+};
+if (currentWord === "doge") {
+	wins = win + 1
+else (guesses -> 0) {
+};
+if (currentWord === "grumpy cat") {
+	wins = win + 1
+else (guesses -> 0) {
+};
+if (currentWord === "peanut butter kid") {
+	wins = win + 1
+else (guesses -> 0) {
+};
+if (currentWord === "success kid") {
+	wins = win + 1
+else (guesses -> 0) {
+};*/
+/*winCount = getElementById("numberOfWins")
+*/
+
+// Letters guessed 
+// Current word 
+// number of guesses remaining 
+
+
