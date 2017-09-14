@@ -3,13 +3,13 @@ var wins = document.getElementById("numberOfWins");
 var loss = document.getElementById("numberOfLosses");
 var guesses = document.getElementById("numberOfguesses");
 var lettersGuessed = "";
-var answerWord = "";
+
 
 
 /*Array of words*/	
 var memeNames = ["pepe", "coldsteel", "doge", "grumpy cat", "success kid", "peanut butter kid"];
 
-	
+var randoms = memeNames[Math.floor(Math.random() * memeNames.length)];
 /*Resets the game and keeps score*/
 window.onload = function startUp () {
 	var answerWord = randoms;
@@ -17,13 +17,22 @@ window.onload = function startUp () {
 	var loss = 0;
 	var guesses = 13;
 /*Grabs random meme name*/
-var randoms = memeNames[Math.floor(Math.random() * memeNames.length)];
-	for (var i = 0; i < randoms.length; i++) {
-		randoms[i] += "-";
-	};
-document.getElementById("theWord").innerHTML = "Current Word: " + randoms;
+var giveMeWords = blankTranslator(randoms);
+
+
+document.getElementById("theWord").innerHTML = "Current Word: " + giveMeWords;
 
 };
+
+/*Blanks out answer*/
+function blankTranslator (randoms) {
+	var change = "";
+	for (var i = 0; i < randoms.length; i++) {
+	 change +="_ ";
+	}
+	return change;
+}
+
 
 
 /*Key input from user-on going*/
