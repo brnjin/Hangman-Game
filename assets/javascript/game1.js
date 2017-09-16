@@ -95,13 +95,29 @@ class Game {
       //If user is out of guesses
       if (this.guesses === 0){
         alert("Sorry you are out of guesses. You lose");
+        //Update number of losses
+        this.loss -= 1;
+
+        //Update loss in document
+        document.getElementById("numberOfLosses").innerHTML = 'Loss:' + this.loss;
 
         //Clear keyup event so that user can't interact with page after losing
         document.onkeyup = null;
       }
+      //If user guesses the word correctly
+      if (this.answerWord === this.displayedword){
+      	alert("Congrats! You Won!");
+
+      	//Update number of wins
+      	
+      	this.win += 1;
+      	//Update win in document
+      	document.getElementById("numberOfWins").innerHTML = 'Wins: '+ this.win;
+      }
     }
   }
 }
+
 
 //Add event listener when the page load. Start a new game.
 document.addEventListener('DOMContentLoaded', () => {
